@@ -7,16 +7,16 @@ export const createPages = async (inp) => {
   await createBlogArticles(inp);
 };
 
-export const onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === `Mdx`) {
-    createNodeField({
-      node,
-      name: `timeToRead`,
-      value: readingTime(node.body),
-    });
-  }
-};
+// export const onCreateNode = ({ node, actions }) => {
+//   const { createNodeField } = actions;
+//   if (node.internal.type === `Mdx`) {
+//     createNodeField({
+//       node,
+//       name: `timeToRead`,
+//       value: readingTime(node.body),
+//     });
+//   }
+// };
 
 /**
  * Create blog article pages.

@@ -44,12 +44,12 @@ export interface IMdxPageContext {
   /**
    * An estimated time needed to read this article in minutes.
    */
-  fields: {
-    timeToRead: {
-      minutes: number;
-      words: number;
-    };
-  };
+  // fields: {
+  //   timeToRead: {
+  //     minutes: number;
+  //     words: number;
+  //   };
+  // };
   /**
    * An excerpt from the markdown file, used for SEO.
    */
@@ -73,13 +73,15 @@ export default function BlogPageTemplate({
   context.frontmatter.updated_at ||= context.frontmatter.created_at;
   context.frontmatter.archived ||= false;
 
+  console.log(children);
+
   return (
     <section>
       <article id="blog-article">
         <h1>test article</h1>
         <section id="blog-article-content">
           {/* <MDXProvider components={MdxShortcodes}> */}
-            {children}
+          {children}
           {/* </MDXProvider> */}
         </section>
       </article>
@@ -102,12 +104,12 @@ export const query = graphql`
       tableOfContents(maxDepth: 3)
       excerpt
 
-      fields {
-        timeToRead {
-          minutes
-          words
-        }
-      }
+      #fields {
+      #  timeToRead {
+      #    minutes
+      #    words
+      #  }
+      #}
     }
   }
 `;
